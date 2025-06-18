@@ -1,11 +1,14 @@
-# Usa la imagen oficial de Java
-FROM openjdk:17-jdk-slim
+# Usa una imagen base con Java 17
+FROM eclipse-temurin:17-jdk
 
-# Copia el jar construido por Maven
+# Crea un directorio para la app
+WORKDIR /app
+
+# Copia el .jar al contenedor
 COPY target/*.jar app.jar
 
-# Expón el puerto que usa Spring Boot
+# Expón el puerto usado por Spring Boot
 EXPOSE 8080
 
-# Comando para ejecutar la app
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+# Ejecuta el .jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
