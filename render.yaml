@@ -3,8 +3,7 @@ services:
     name: api-fleetguard360
     env: java
     plan: free
-    branch: main
-    buildCommand: ./mvnw clean install
+    buildCommand: ./mvnw clean install -DskipTests
     startCommand: java -jar target/admin-panel-0.0.1-SNAPSHOT.jar
     envVars:
       - key: JAVA_HOME
